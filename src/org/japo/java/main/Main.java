@@ -15,9 +15,15 @@
  */
 package org.japo.java.main;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+
+    // Instancia el objeto Scanner
+    public static final Scanner SCN
+            = new Scanner(System.in, "Windows-1252")
+                    .useLocale(Locale.ENGLISH).useDelimiter("\\s+");
 
     public static void main(String[] args) {
         // Referencias
@@ -25,16 +31,18 @@ public class Main {
         final String MSG_SI = "¡Ave César!";
         final String MSG_NO = "¡Sócrates socorro!";
 
-        // Instancia un objeto Scanner
-        Scanner sc = new Scanner(System.in, "ISO-8859-1");
-
         // Variables
         String nombrePersona;
         String mensajeLoro;
 
+        // Cabecera
+        System.out.println("Alternativa Loro");
+        System.out.println("================");
+
         // Introduce la persona que se acerca
-        System.out.printf("Persona que se acerca: ");
-        nombrePersona = sc.nextLine();
+        System.out.printf("Persona que se acerca ..: ");
+        nombrePersona = SCN.nextLine();
+        System.out.println("---");
 
         // Analiza la persona que se acerca
         if (nombrePersona.equals(NOMBRE_AMO)) {
@@ -44,8 +52,8 @@ public class Main {
         }
 
         // Mensajes de salida
-        System.out.printf("Dueño del loro ......: %s\n", NOMBRE_AMO);
-        System.out.printf("Persona que se acerca: %s\n", nombrePersona);
-        System.out.printf("Mensaje Loro ........: %s\n", mensajeLoro);
+        System.out.printf("Dueño del loro .........: %s%n", NOMBRE_AMO);
+        System.out.println("---");
+        System.out.printf("Mensaje Loro ...........: %s%n", mensajeLoro);
     }
 }
